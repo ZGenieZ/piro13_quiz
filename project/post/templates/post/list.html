@@ -25,17 +25,15 @@
             <ul>
                 {% for user in users %}
                     제목: {{ user.quizs.title }}
-                    출제자: {{ user.name }}
+                    출제자: {{ user.first_name }}
                 {% endfor %}
                 <div>
-                    <button type="button" class="btn btn-light"><a href="">풀기</a></button>
+                    <button type="button" class="btn btn-light"><a href="">퀴즈 풀기</a></button>
                 </div>
                 <div>
                     <button type="button" class="btn btn-light"><a href="">확인하기</a></button>
                 </div>
             </ul>
         {% endif %}
-
-
     </div>
 {% endblock %}

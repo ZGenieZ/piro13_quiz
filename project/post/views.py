@@ -23,9 +23,12 @@ def list(request):
 
 
 def quiz(request, pk):
+    # quiz = User.objects.quizs.get(pk=pk)
     user = User.objects.get(pk=pk)
+    quiz = user.quizs
     data = {
-       'user': user
+        'user':user,
+        'quiz': quiz
     }
     return render(request, 'post/quiz.html',data)
 
@@ -37,4 +40,5 @@ def detail(request):
 #     return render(request, 'client/client_list.html',
 #                   {'clients': qs,
 #                    }
-#                   )
+#                   ) user.quizs.pk = quiz.pk
+

@@ -1,17 +1,28 @@
 {% extends 'post/layout.html' %}
 {% block content %}
-<h4>{{ user.quizs.title }}</h4>
+<h4>{{ quiz.title }}</h4>
 <p>출제자: {{ user.first_name }} </p>
-{% for   %} 수정중
-<hr style="border: 1px solid white;">
-<p>Q1.</p>
+<form action="" method="POST">
+    {% for question in quiz.questions  %}
+        <hr style="border: 1px solid white;">
+        {{ question.question_text }}
+            {% for choice in question.choices %}
+                <input type="radio" name="{{ question.pk }}" id="{{ choice.pk }}" value=True>
+                <label for="{{ choice.pk }}">
+                    {{ choice.choice_text }}
+                </label>
+            {% endfor %}
+    {% endfor %}
+
+</form>
 
 {#<form action="/action_page.php">#}
 {#    {% for in %}#}
 {#        <p>{{ .question_text }}</p>#}
 {#        {% for in %}#}
-{#    <input type="radio" class="answer" id="{{ }}" name="{% %}">#}
-{#    <label for="{{ }}"> {{  .choice_text }} </label>#}
+    {#    <input type="radio" class="answer" id="{{ }}" name="{% %}">#}
+    {#    <label for="{{ }}"> {{  .choice_text }} </label>#}
 {#        {% endfor %}#}
 {#    {% endfor %}#}
+
 {% endblock %}
